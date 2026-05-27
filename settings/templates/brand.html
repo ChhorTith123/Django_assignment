@@ -1,0 +1,34 @@
+{% extends 'home.html'%}
+
+{% block content %}
+
+<h2>Brand Page</h2>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Brand Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    {% for brand in brands %}
+
+    <tr>
+      <th scope="row">{{ forloop.counter }}</th>
+      <td>{{ brand.name}}</td>
+      <td>{{ brand.description}}</td>
+      <td>
+        <a href="{% url 'admin:settings_brand_change' brand.id %}" class="btn btn-primary">Edit</a>
+      </td>
+    </tr>
+
+    {% endfor %}
+
+  </tbody>
+</table>
+
+{% endblock %}
